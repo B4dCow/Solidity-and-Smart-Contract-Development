@@ -14,15 +14,14 @@ contract Exercise2{
     function stringConverter(string calldata binString) public pure returns (uint dec) {
         bytes memory byteBin = bytes(binString);
         uint n = byteBin.length;
-        
         for(uint i=0;i < n;i++){
             require((byteBin[i]=="0")||(byteBin[i]=="1"),"The string entered is not a binary string");
             if (byteBin[i]=="1"){
                 dec = dec + 2**(n-i-1);
             }
-            }
-        return dec;
         }
+        return dec;
+    }
     
     /// @param number an integer in [0,255]
     /// @return result an array of integers, that when added together, will give you the number you originally input to the function
